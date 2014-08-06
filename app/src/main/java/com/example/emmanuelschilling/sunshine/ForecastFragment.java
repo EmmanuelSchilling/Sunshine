@@ -31,7 +31,7 @@ import java.util.Date;
 import java.util.List;
 
 public class ForecastFragment extends Fragment {
-    private ArrayAdapter<String> mForecastAdapter;
+    public static ArrayAdapter<String> mForecastAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -204,7 +204,7 @@ public class ForecastFragment extends Fragment {
 
                 URL url = new URL(builtUri.toString());
 
-                Log.v(LOG_TAG, "Built URI " + builtUri.toString());
+     //           Log.v(LOG_TAG, "Built URI " + builtUri.toString());
 
                 // Create the request to OpenWeatherMap, and open the connection
                 urlConnection = (HttpURLConnection) url.openConnection();
@@ -233,7 +233,7 @@ public class ForecastFragment extends Fragment {
                     return null;
                 }
                 forecastJsonStr = buffer.toString();
-                Log.v(LOG_TAG, "Forecast JSON String:" + forecastJsonStr);
+//                Log.v(LOG_TAG, "Forecast JSON String:" + forecastJsonStr);
             } catch (IOException e) {
                 Log.e(LOG_TAG, "Error ", e);
                 // If the code didn't successfully get the weather data, there's no point in attempting
@@ -256,7 +256,20 @@ public class ForecastFragment extends Fragment {
                 return getWeatherDataFromJson(forecastJsonStr, numDays);
             } catch (JSONException e) {
                 Log.e(LOG_TAG, "Error ", e);
-                return null;
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String[] strings) {
+            super.onPostExecute(strings);
+            if (strings != null) {
+                ForecastFragment.mForecastAdapter.clear();
+
+                for (String str : strings) {
+                    ForecastFragment.mForecastAdapter.add(str);
+                }
             }
         }
 
