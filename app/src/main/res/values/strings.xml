@@ -12,4 +12,11 @@
     <string name="pref_location_label">Location</string>
     <string name="pref_location_default" translatable="false">94043</string>
 
+    <string name="pref_units_key" translatable="false">Units</string>
+    <string name="pref_units_label">Units</string>
+    <string name="pref_units_metric">Metric</string>
+    <string name="pref_units_imperial">Imperial</string>
+    <string name="pref_units_values">Values</string>
+    <string name="pref_units_options">Options</string>
+
 </resources>
