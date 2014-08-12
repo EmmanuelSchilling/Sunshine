@@ -18,5 +18,7 @@
     <string name="pref_units_imperial">Imperial</string>
     <string name="pref_units_values">Values</string>
     <string name="pref_units_options">Options</string>
+    <string name="action_map">Location</string>
+    <string name="action_share">Share</string>
 
 </resources>

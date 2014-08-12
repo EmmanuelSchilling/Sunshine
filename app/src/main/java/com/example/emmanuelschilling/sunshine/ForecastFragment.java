@@ -17,7 +17,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -93,19 +92,6 @@ public class ForecastFragment extends Fragment {
         if (id == R.id.action_refresh) {
             updateWeather();
             return true;
-        } else if (id == R.id.action_map) {
-            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity());
-            String postCode = settings.getString(getString(R.string.pref_location_key), getString(R.string.pref_location_default));
-            String geoLocation = "geo:0,0?q=" + Uri.encode(postCode);
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(geoLocation));
-
-            if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
-                startActivity(intent);
-            } else {
-                Toast.makeText(getActivity(), "Map unavailable for " + postCode, Toast.LENGTH_SHORT).show();
-            }
-
         }
         return super.onOptionsItemSelected(item);
     }
