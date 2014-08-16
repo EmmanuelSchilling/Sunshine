@@ -1,4 +1,4 @@
-package com.example.emmanuelschilling.sunshine;
+package com.example.emmanuelschilling.sunshine.app;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +9,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.example.emmanuelschilling.sunshine.R;
 
 
 public class MainActivity extends ActionBarActivity {
