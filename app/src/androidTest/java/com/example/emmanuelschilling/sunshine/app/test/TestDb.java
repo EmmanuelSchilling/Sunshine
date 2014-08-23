@@ -22,12 +22,15 @@ import java.util.Set;
 public class TestDb extends AndroidTestCase {
     private static final String LOG_TAG = TestDb.class.getSimpleName();
 
-    public String TEST_CITY_NAME = "North Pole";
+    static public String TEST_CITY_NAME = "North Pole";
+    static public String TEST_LOCATION = "99705";
+    static public String TEST_DATE = "20141205";
 
-    private ContentValues buildWeatherValues(long locationRowId) {
+
+    public static ContentValues buildWeatherValues(long locationRowId) {
         ContentValues weatherValues = new ContentValues();
         weatherValues.put(WeatherEntry.COLUMN_LOC_KEY, locationRowId);
-        weatherValues.put(WeatherEntry.COLUMN_DATETEXT, "20141205");
+        weatherValues.put(WeatherEntry.COLUMN_DATETEXT, TEST_DATE);
         weatherValues.put(WeatherEntry.COLUMN_DEGREES, 1.1);
         weatherValues.put(WeatherEntry.COLUMN_HUMIDITY, 1.2);
         weatherValues.put(WeatherEntry.COLUMN_PRESSURE, 1.3);
@@ -40,8 +43,8 @@ public class TestDb extends AndroidTestCase {
         return weatherValues;
     }
 
-    private ContentValues buildLocationValues() {
-        String testLocationSetting = "99705";
+    public static ContentValues buildLocationValues() {
+        String testLocationSetting = TEST_LOCATION;
         double testLatitude = 64.772;
         double testLongitude = -147.355;
 
@@ -55,7 +58,7 @@ public class TestDb extends AndroidTestCase {
         return locationValues;
     }
 
-    private void validateCursor(ContentValues expectedValues, Cursor cursor) {
+    public static void validateCursor(ContentValues expectedValues, Cursor cursor) {
         Set<Map.Entry<String, Object>> valueSet = expectedValues.valueSet();
 
         for (Map.Entry<String, Object> entry : valueSet) {
