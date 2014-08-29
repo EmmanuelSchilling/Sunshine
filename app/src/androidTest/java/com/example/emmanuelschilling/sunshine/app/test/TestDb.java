@@ -38,7 +38,7 @@ public class TestDb extends AndroidTestCase {
         weatherValues.put(WeatherEntry.COLUMN_MIN_TEMP, 65);
         weatherValues.put(WeatherEntry.COLUMN_SHORT_DESC, "Asteroids");
         weatherValues.put(WeatherEntry.COLUMN_WIND_SPEED, 5.5);
-        weatherValues.put(WeatherEntry.COLUMN_WEATHER_ID, 321);
+        weatherValues.put(WeatherEntry.COLUMN_WEATHER_CONDITION_ID, 321);
 
         return weatherValues;
     }

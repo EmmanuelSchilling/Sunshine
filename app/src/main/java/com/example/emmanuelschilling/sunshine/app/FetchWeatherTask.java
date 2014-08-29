@@ -196,7 +196,7 @@ public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
             weatherValues.put(WeatherEntry.COLUMN_MAX_TEMP, high);
             weatherValues.put(WeatherEntry.COLUMN_MIN_TEMP, low);
             weatherValues.put(WeatherEntry.COLUMN_SHORT_DESC, description);
-            weatherValues.put(WeatherEntry.COLUMN_WEATHER_ID, weatherId);
+            weatherValues.put(WeatherEntry.COLUMN_WEATHER_CONDITION_ID, weatherId);
 
             cVVector.add(weatherValues);
 
@@ -277,7 +277,8 @@ public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
                 // Since it's JSON, adding a newline isn't necessary (it won't affect parsing)
                 // But it does make debugging a *lot* easier if you print out the completed
                 // buffer for debugging.
-                buffer.append(line + "\n");
+                buffer.append(line);
+                buffer.append("\n");
             }
 
             if (buffer.length() == 0) {
@@ -315,17 +316,4 @@ public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
 
         return null;
     }
-
-    @Override
-    protected void onPostExecute(String[] strings) {
-        super.onPostExecute(strings);
-        if (strings != null) {
-//            ForecastFragment.mForecastAdapter.clear();
-//
-//            for (String str : strings) {
-//                ForecastFragment.mForecastAdapter.add(str);
-//            }
-        }
-    }
-
 }
